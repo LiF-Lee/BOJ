@@ -7,7 +7,7 @@
 import sys
 a = int(sys.stdin.readline())
 for i in range(a):
-    a, b = map(int, sys.stdin.readline().split())
+    b, c = map(int, sys.stdin.readline().split())
 ```
 
 ## C++
@@ -18,11 +18,11 @@ using namespace std;
 
 int main() {
     ios_base::sync_with_stdio(0); cin.tie(0);
-    int a, b, c;
+    int a;
     cin >> a;
     for (int i = 0; i < a; i++) {
+        int b, c;
         cin >> b >> c;
-        cout << b + c << "\n";
     }
 }
 ```
