@@ -18,7 +18,7 @@ a, b, c = map(int, stdin.readline().split())
 ``` python
 # 빠른 출력
 from sys import stdin, stdout
-stdout.write("%s %s\n" % ("a", "b")) # a b
+stdout.write(f"{a} {b}\n")
 ```
 
 ``` python
@@ -26,7 +26,7 @@ stdout.write("%s %s\n" % ("a", "b")) # a b
 from sys import stdin, stdout
 list = []
 for idx, val in enumerate(list):
-    stdout.write("%d %d\n" % (idx, val))
+    stdout.write(f"{idx} {val}\n")
 ```
 
 ``` python
