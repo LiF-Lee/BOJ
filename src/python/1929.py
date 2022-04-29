@@ -1,15 +1,18 @@
+import math
 from sys import stdin, stdout
 from collections import deque
+import math
 M, N = map(int, stdin.readline().split())
-list = deque([i for i in range(M, N + 1)])
-for j in [2, 3, 5, 7]:
-    for k in range(len(list)):
-        if list[k] == 0:
-            continue
-        if list[k] not in [2, 3, 5, 7] and list[k] % j == 0:
-            list[k] = 0
-res = set(list)
-for v in res:
-    if v == 0 or v == 1:
+for i in range(M, N + 1):
+    if i < 2:
         continue
-    stdout.write(f"{v}\n")
+    if i == 2:
+        stdout.write(f"{i}\n")
+        continue
+    prime = True
+    for j in range(2, math.ceil(math.sqrt(i)) + 1):
+        if i % j == 0:
+            prime = False
+            break
+    if prime:
+        stdout.write(f"{i}\n")
