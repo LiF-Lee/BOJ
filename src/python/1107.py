@@ -3,7 +3,7 @@ target = int(stdin.readline())
 btn_count = int(stdin.readline())
 press_count = abs(target - 100)
 if btn_count == 0:
-    stdout.write(f"{len(str(target))}")
+    stdout.write(f"{min(press_count, len(str(target)))}")
     exit()
 btn_list = list(map(str, stdin.readline().split()))
 if btn_count == 10 or target == 100:
