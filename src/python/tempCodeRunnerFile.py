@@ -1,0 +1,1 @@
+(math.factorial(b) * math.factorial(a - b))))
