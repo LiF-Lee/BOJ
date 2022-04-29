@@ -64,7 +64,7 @@ def Quick_Sort(array, low, high):
 ``` python
 # 이분 탐색
 def Binary_Search(array, target, start, end):
-    if start > end:
+    if start >= end:
         return -1
     mid = (start + end) // 2
     if array[mid] == target:
@@ -73,6 +73,8 @@ def Binary_Search(array, target, start, end):
         return Binary_Search(array, target, start, mid - 1)
     else:
         return Binary_Search(array, target, mid + 1, end)
+
+Binary_Search(array, target, start, end - 1)
 ```
 
 ## C++
