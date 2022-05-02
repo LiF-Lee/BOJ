@@ -111,6 +111,12 @@ def heap_sort(nums):
 print(heap_sort([4, 1, 7, 3, 8, 5]))
 ```
 
+``` python
+# 캐시
+from functools import cache
+@cache
+```
+
 ## C++
 
 ``` cpp
