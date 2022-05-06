@@ -14,20 +14,24 @@ for _ in range(int(stdin.readline())):
     L = []
     a = int(stdin.readline())
     con = True
+    is_sort = False
     for i in range(a):
         cmd = stdin.readline().rstrip().split()
-        if con == False:
-            continue
         if cmd[0] == 'I':
+            is_sort = False
             heapq.heappush(L, int(cmd[1]))
         else:
+            if con == False:
+                continue
             if len(L) == 0:
                 con = False
                 continue
             if cmd[1] == '-1':
                 heapq.heappop(L)
             else:
-                L = heap_sort(L)
+                if is_sort == False:
+                    is_sort = True
+                    L = heap_sort(L)
                 L.pop()
     if con == False:
         stdout.write('EMPTY\n')
