@@ -1,22 +1,18 @@
+from sys import stdin, stdout
 from collections import deque
 
-def bfs():
-    q = deque()             # deque는 양쪽에서 입출력 가능
-    q.append(n)             # q = deque([5])
-    while q:
-        x = q.popleft()     # 처음 시작점은 x = 5, q = deque([])
-        print(dist[:x + 1])
-        if x == k:
-            print(dist[x])
-            break
-        for nx in (x - 1, x + 1, x * 2):    # nx = 4, 6, 10
-            if 0 <= nx <= MAX and not dist[nx]:
-                dist[nx] = dist[x] + 1
-                q.append(nx)    # q = deque([4, 6, "10"])
-                
+N, K = map(int, stdin.readline().split())
 
-MAX = 10 ** 5               # 시간초과 안나게 수 제한
-dist = [0] * (MAX + 1)      # 이동하는 거리를 알기 위한 변수
-n, k = map(int, input().split())
+MAX = 100_000
+L = deque([0 for _ in range(MAX + 1)]) # 몇 번쨰 방문인지 확인하는 배열
+Q = deque([N]) # 방문할 노드를 저장하는 큐
 
-bfs()
+while L:
+    R = Q.popleft()
+    if R == K:
+        stdout.write(F"{L[R]}")
+        break
+    for i in [R - 1, R + 1, R * 2]:
+        if 0 <= i and i <= MAX and L[i] == 0: # 방문하지 않은 노드일때
+            L[i] = L[R] + 1
+            Q.append(i)
