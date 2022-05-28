@@ -12,7 +12,7 @@ L[N] = 0
 
 while Q:
     x = Q.popleft()
-    if x == N:
+    if x == 1:
         stdout.write(f"{L[x]}\n")
         c = x
         r = []
@@ -22,7 +22,10 @@ while Q:
         stdout.write(f"{' '.join(r[::-1])}\n")
         break
     for i in [x - 1, x / 2, x / 3]:
-        if int(i) == i and 0 <= i <= MAX and L[i] == -1:
+        if int(i) != i:
+            continue
+        i = int(i)
+        if 0 <= i <= MAX and L[i] == -1:
             M[i] = x
             Q.append(i)
             L[i] = L[x] + 1
