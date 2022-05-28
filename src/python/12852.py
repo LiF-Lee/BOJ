@@ -8,7 +8,7 @@ L = deque([-1 for _ in range(MAX + 1)])
 M = deque([-1 for _ in range(MAX + 1)])
 Q = deque([1])
 
-L[N] = 0
+L[1] = 0
 
 while Q:
     x = Q.popleft()
