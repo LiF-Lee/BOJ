@@ -6,9 +6,9 @@ N = int(stdin.readline())
 MAX = N
 L = deque([-1 for _ in range(MAX + 1)])
 M = deque([-1 for _ in range(MAX + 1)])
-Q = deque([1])
+Q = deque([N])
 
-L[1] = 0
+L[N] = 0
 
 while Q:
     x = Q.popleft()
@@ -19,10 +19,10 @@ while Q:
         for _ in range(L[x] + 1):
             r.append(str(c))
             c = M[c]
-        stdout.write(f"{' '.join(r)}\n")
+        stdout.write(f"{' '.join(r[::-1])}\n")
         break
-    for i in [x + 1, x * 2, x * 3]:
-        if 0 <= i <= MAX and L[i] == -1:
+    for i in [x - 1, x / 2, x / 3]:
+        if int(i) == i and 0 <= i <= MAX and L[i] == -1:
             M[i] = x
             Q.append(i)
             L[i] = L[x] + 1
